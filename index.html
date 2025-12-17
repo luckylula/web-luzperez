@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz Pérez Sánchez | Innovación y Talento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d; /* Azul académico profundo */
+            --accent: #4fd1c5;  /* Turquesa pedagógico */
+            --bg: #f7fafc;
+            --text: #2d3748;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+        }
+
+        .hero-content {
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--text);
+            margin-bottom: 30px;
+        }
+
+        .pills {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .pill {
+            padding: 8px 20px;
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .pill:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 100px 10%;
+            background: white;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 15px;
+            background: var(--bg);
+            transition: transform 0.3s;
+            border-left: 5px solid var(--accent);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .btn-main {
+            margin-top: 40px;
+            padding: 15px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>Luz Pérez Sánchez</h1>
+            <p class="tagline">Impulsando el Talento y la Innovación Educativa</p>
+            <div class="pills">
+                <span class="pill">Catedrática</span>
+                <span class="pill">Investigadora</span>
+                <span class="pill">Autora</span>
+            </div>
+            <br><br>
+            <a href="#about" class="btn-main">Explorar Trayectoria</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 style="font-size: 2.5rem; color: var(--primary);">Pedagogía con Propósito</h2>
+        <p style="max-width: 700px; font-size: 1.2rem; line-height: 1.6;">
+            Especialista en identificar y potenciar el talento humano. Mi enfoque combina la rigurosidad científica de la Universidad Complutense con metodologías innovadoras para el futuro de la educación.
+        </p>
+
+        <div class="grid-features">
+            <div class="card">
+                <h3>Alta Capacidad</h3>
+                <p>Programas específicos para el desarrollo del talento y la excelencia educativa.</p>
+            </div>
+            <div class="card">
+                <h3>Innovación</h3>
+                <p>Nuevas fronteras en psicología aplicada y técnicas de aprendizaje creativo.</p>
+            </div>
+            <div class="card">
+                <h3>Publicaciones</h3>
+                <p>Más de 30 años de investigación plasmados en libros y artículos científicos.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
