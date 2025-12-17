@@ -3,163 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luz Pérez Sánchez | Innovación y Movimiento</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Luz Pérez Sánchez | Innovación y Talento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --glass: rgba(255, 255, 255, 0.8);
+            --primary: #1a365d; /* Azul académico */
+            --accent: #3b82f6;  /* Azul interactivo */
+            --bg: #f8fafc;
+            --text: #1e293b;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            background: #f8fafc;
-            color: var(--primary);
+            background-color: var(--bg);
+            color: var(--text);
             overflow-x: hidden;
         }
 
-        /* FONDO DINÁMICO (Estilo Modi) */
-        .animated-bg {
+        /* Fondo con movimiento sutil */
+        .bg-gradient {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #e2e8f0 0%, #f8fafc 100%);
+            background: radial-gradient(circle at 50% 50%, #f1f5f9 0%, #f8fafc 100%);
         }
 
-        .blob {
-            position: absolute;
-            width: 500px; height: 500px;
-            background: rgba(59, 130, 246, 0.1);
-            filter: blur(80px);
-            border-radius: 50%;
-            animation: move 20s infinite alternate;
-        }
-
-        @keyframes move {
-            from { transform: translate(-10%, -10%); }
-            to { transform: translate(20%, 20%); }
-        }
-
-        /* HERO SECTION CON PARALLAX */
-        .hero {
+        header {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            perspective: 1000px;
+            padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 5rem;
-            margin: 0;
-            background: linear-gradient(to right, #1e293b, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transform: translateZ(50px);
+        h1 {
+            font-size: 4.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: -2px;
         }
 
-        /* TARJETAS INTERACTIVAS */
+        .tagline {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #64748b;
+            margin-bottom: 35px;
+        }
+
+        .pills {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .pill {
+            padding: 8px 22px;
+            border: 1.5px solid var(--primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .pill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-trayectoria {
+            padding: 18px 45px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.4s;
+            box-shadow: 0 10px 20px rgba(26, 54, 93, 0.2);
+        }
+
+        .btn-trayectoria:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+        }
+
         section {
-            padding: 100px 10%;
-            min-height: 80vh;
+            padding: 120px 12%;
+            background: white;
+            border-top: 1px solid #e2e8f0;
         }
 
-        .grid-container {
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .grid-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 40px;
+            padding: 45px;
+            background: var(--bg);
             border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.3);
+            border-left: 6px solid var(--accent);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .card:hover {
-            transform: translateY(-15px) scale(1.02);
+            transform: translateY(-15px);
             background: white;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
         }
 
-        /* BOTONES CON EFECTO MODI */
-        .btn-interact {
-            padding: 15px 35px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-            margin-top: 20px;
-            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
 
-        .btn-interact:hover {
-            transform: scale(1.1);
-            background: var(--accent);
-        }
-
-        .nav-fixed {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 20px 0;
-            text-align: center;
-            z-index: 100;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(10px);
+        .card p {
+            line-height: 1.6;
+            color: #475569;
         }
     </style>
 </head>
 <body>
 
-    <div class="animated-bg">
-        <div class="blob"></div>
-    </div>
+    <div class="bg-gradient"></div>
 
-    <nav class="nav-fixed">
-        <strong>LUZ PÉREZ SÁNCHEZ</strong>
-    </nav>
+    <header>
+        <h1 data-aos="fade-down" data-aos-duration="1200">Luz Pérez Sánchez</h1>
+        <p class="tagline" data-aos="fade-up" data-aos-delay="300">Impulsando el talento y la innovación educativa</p>
+        
+        <div class="pills" data-aos="fade-up" data-aos-delay="600">
+            <span class="pill">Catedrática</span>
+            <span class="pill">Investigadora</span>
+            <span class="pill">Autora</span>
+        </div>
 
-    <header class="hero">
-        <h1 data-aos="zoom-out" data-aos-duration="1500">Talento & Ciencia</h1>
-        <p data-aos="fade-up" data-aos-delay="500" style="font-size: 1.5rem; color: #64748b;">
-            Investigación aplicada a la excelencia educativa.
-        </p>
-        <div data-aos="fade-up" data-aos-delay="800">
-            <a href="#proyectos" class="btn-interact">Explorar Innovación</a>
+        <div data-aos="zoom-in" data-aos-delay="900">
+            <a href="#pedagogia" class="btn-trayectoria">Explorar Trayectoria</a>
         </div>
     </header>
 
-    <section id="proyectos">
-        <h2 data-aos="fade-right">Áreas de Impacto</h2>
-        <div class="grid-container">
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <div style="font-size: 2rem; margin-bottom: 20px;">🧬</div>
-                <h3>Investigación Científica</h3>
-                <p>Cátedras y laboratorios dedicados a la psicología del talento en la UCM.</p>
+    <section id="pedagogia">
+        <h2 class="section-title" data-aos="fade-right">Pedagogía con propósito</h2>
+        <p style="max-width: 750px; font-size: 1.25rem; color: #475569;" data-aos="fade-right" data-aos-delay="200">
+            Especialista en identificar y potenciar el talento humano. Mi enfoque combina la rigurosidad científica con metodologías innovadoras para el futuro de la educación.
+        </p>
+
+        <div class="grid-cards">
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Alta Capacidad</h3>
+                <p>Programas específicos diseñados para el desarrollo del talento y la búsqueda de la excelencia educativa en todos los niveles.</p>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <div style="font-size: 2rem; margin-bottom: 20px;">📚</div>
+            <div class="card" data-aos="fade-up" data-aos-delay="600">
+                <h3>Innovación</h3>
+                <p>Nuevas fronteras en psicología aplicada y técnicas de aprendizaje creativo para transformar los entornos educativos actuales.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
                 <h3>Publicaciones</h3>
-                <p>Análisis profundo del desarrollo humano y la creatividad pedagógica.</p>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-                <div style="font-size: 2rem; margin-bottom: 20px;">💡</div>
-                <h3>Innovación Educativa</h3>
-                <p>Transformando el aula a través de la inteligencia y el pensamiento crítico.</p>
+                <p>Más de 30 años de investigación científica plasmados en libros, artículos y ensayos de impacto internacional.</p>
             </div>
         </div>
     </section>
