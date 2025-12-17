@@ -3,161 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luz Pérez Sánchez | Innovación y Talento</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Luz Pérez Sánchez | Innovación y Movimiento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #1a365d; /* Azul académico profundo */
-            --accent: #4fd1c5;  /* Turquesa pedagógico */
-            --bg: #f7fafc;
-            --text: #2d3748;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --glass: rgba(255, 255, 255, 0.8);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
+            background: #f8fafc;
+            color: var(--primary);
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        /* Animación de entrada */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* FONDO DINÁMICO (Estilo Modi) */
+        .animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #e2e8f0 0%, #f8fafc 100%);
         }
 
-        header {
+        .blob {
+            position: absolute;
+            width: 500px; height: 500px;
+            background: rgba(59, 130, 246, 0.1);
+            filter: blur(80px);
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        /* HERO SECTION CON PARALLAX */
+        .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            perspective: 1000px;
         }
 
-        .hero-content {
-            animation: fadeInUp 1.2s ease-out;
+        .hero h1 {
+            font-size: 5rem;
+            margin: 0;
+            background: linear-gradient(to right, #1e293b, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateZ(50px);
         }
 
-        h1 {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--text);
-            margin-bottom: 30px;
-        }
-
-        .pills {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .pill {
-            padding: 8px 20px;
-            border: 1px solid var(--primary);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .pill:hover {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.05);
-        }
-
+        /* TARJETAS INTERACTIVAS */
         section {
             padding: 100px 10%;
-            background: white;
+            min-height: 80vh;
         }
 
-        .grid-features {
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
             margin-top: 50px;
         }
 
         .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             padding: 40px;
-            border-radius: 15px;
-            background: var(--bg);
-            transition: transform 0.3s;
-            border-left: 5px solid var(--accent);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            transform: translateY(-15px) scale(1.02);
+            background: white;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
         }
 
-        .btn-main {
-            margin-top: 40px;
-            padding: 15px 40px;
+        /* BOTONES CON EFECTO MODI */
+        .btn-interact {
+            padding: 15px 35px;
             background: var(--primary);
             color: white;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            font-weight: 600;
             transition: 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
         }
 
-        .btn-main:hover {
+        .btn-interact:hover {
+            transform: scale(1.1);
             background: var(--accent);
-            color: var(--primary);
         }
 
+        .nav-fixed {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            z-index: 100;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="hero-content">
-            <h1>Luz Pérez Sánchez</h1>
-            <p class="tagline">Impulsando el Talento y la Innovación Educativa</p>
-            <div class="pills">
-                <span class="pill">Catedrática</span>
-                <span class="pill">Investigadora</span>
-                <span class="pill">Autora</span>
-            </div>
-            <br><br>
-            <a href="#about" class="btn-main">Explorar Trayectoria</a>
+    <div class="animated-bg">
+        <div class="blob"></div>
+    </div>
+
+    <nav class="nav-fixed">
+        <strong>LUZ PÉREZ SÁNCHEZ</strong>
+    </nav>
+
+    <header class="hero">
+        <h1 data-aos="zoom-out" data-aos-duration="1500">Talento & Ciencia</h1>
+        <p data-aos="fade-up" data-aos-delay="500" style="font-size: 1.5rem; color: #64748b;">
+            Investigación aplicada a la excelencia educativa.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="800">
+            <a href="#proyectos" class="btn-interact">Explorar Innovación</a>
         </div>
     </header>
 
-    <section id="about">
-        <h2 style="font-size: 2.5rem; color: var(--primary);">Pedagogía con Propósito</h2>
-        <p style="max-width: 700px; font-size: 1.2rem; line-height: 1.6;">
-            Especialista en identificar y potenciar el talento humano. Mi enfoque combina la rigurosidad científica de la Universidad Complutense con metodologías innovadoras para el futuro de la educación.
-        </p>
-
-        <div class="grid-features">
-            <div class="card">
-                <h3>Alta Capacidad</h3>
-                <p>Programas específicos para el desarrollo del talento y la excelencia educativa.</p>
+    <section id="proyectos">
+        <h2 data-aos="fade-right">Áreas de Impacto</h2>
+        <div class="grid-container">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div style="font-size: 2rem; margin-bottom: 20px;">🧬</div>
+                <h3>Investigación Científica</h3>
+                <p>Cátedras y laboratorios dedicados a la psicología del talento en la UCM.</p>
             </div>
-            <div class="card">
-                <h3>Innovación</h3>
-                <p>Nuevas fronteras en psicología aplicada y técnicas de aprendizaje creativo.</p>
-            </div>
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div style="font-size: 2rem; margin-bottom: 20px;">📚</div>
                 <h3>Publicaciones</h3>
-                <p>Más de 30 años de investigación plasmados en libros y artículos científicos.</p>
+                <p>Análisis profundo del desarrollo humano y la creatividad pedagógica.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <div style="font-size: 2rem; margin-bottom: 20px;">💡</div>
+                <h3>Innovación Educativa</h3>
+                <p>Transformando el aula a través de la inteligencia y el pensamiento crítico.</p>
             </div>
         </div>
     </section>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true
+      });
+    </script>
 </body>
 </html>
