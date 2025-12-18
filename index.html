@@ -75,7 +75,7 @@
         .section-title { font-size: 2.8rem; color: var(--primary); text-align: center; margin-bottom: 50px; }
         .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: var(--accent); margin: 15px auto 0; }
 
-        /* --- Grid de Tarjetas iniciales --- */
+        /* --- Grid de Tarjetas (Simetría Forzada) --- */
         .grid-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -89,10 +89,20 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.3s;
             border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .card-image { width: 100%; height: auto; display: block; }
-        .card-body { padding: 30px; }
+        
+        /* Ajuste para que todas las imágenes sean iguales a la de Alta Capacidad */
+        .card-image { 
+            width: 100%; 
+            aspect-ratio: 3 / 2; /* Proporción estándar que unifica las tres fotos */
+            object-fit: cover; 
+            display: block;
+        }
+
+        .card-body { padding: 30px; flex-grow: 1; }
         .card-body h3 { color: var(--primary); margin-top: 0; font-size: 1.5rem; }
 
         /* --- Estilo de contenido de texto --- */
@@ -165,19 +175,18 @@
         <h2 class="section-title">Catedrática</h2>
         <div class="text-content">
             <p>Mi trayectoria como <span class="highlight">Catedrática de Psicología Evolutiva y de la Educación</span> en la Universidad Complutense de Madrid y en la Universidad Camilo José Cela es el pilar de mi compromiso con el talento.</p>
-            <p>Mi formación se consolidó en centros de referencia mundial como las universidades de <span class="highlight">Harvard y Yale</span>, donde trabajé junto al Profesor Robert J. Sternberg. Esta experiencia internacional marcó mi visión sobre el desarrollo de la inteligencia y el potencial humano.</p>
-            <p>He dedicado mi carrera a llevar la investigación de vanguardia directamente a las aulas, formando a las nuevas generaciones de profesionales de la educación.</p>
+            <p>Mi formación se consolidó en centros de referencia mundial como las universidades de <span class="highlight">Harvard y Yale</span>, donde trabajé junto al Profesor Robert J. Sternberg.</p>
         </div>
     </section>
 
     <section id="investigadora">
         <h2 class="section-title">Investigadora</h2>
         <div class="text-content">
-            <p>Como Directora del <span class="highlight">Grupo de Investigación en Alta Capacidad y Talento (GAT)</span>, lidero proyectos que transforman la ciencia en impacto social real.</p>
+            <p>Como Directora del <span class="highlight">Grupo de Investigación en Alta Capacidad y Talento (GAT)</span>, lidero proyectos de impacto social real.</p>
             <ul class="especial-list">
-                <li><strong>Programa Estrella:</strong> Pionero en España para la atención específica de alumnos con alta capacidad.</li>
-                <li><strong>Proyecto BIT:</strong> Innovación tecnológica para la inclusión y alfabetización digital de personas con discapacidad intelectual.</li>
-                <li><strong>Reconocimientos:</strong> Premio Nacional de Investigación Educativa y galardones de Cruz Roja y la Fundación Síndrome de Down por mi labor científica.</li>
+                <li><strong>Programa Estrella:</strong> Atención específica de alumnos con alta capacidad.</li>
+                <li><strong>Proyecto BIT:</strong> Inclusión y alfabetización digital de personas con discapacidad intelectual.</li>
+                <li><strong>Reconocimientos:</strong> Premio Nacional de Investigación Educativa y galardones de Cruz Roja y Fundación Síndrome de Down.</li>
             </ul>
         </div>
     </section>
@@ -185,19 +194,17 @@
     <section id="autora" style="background: var(--bg);">
         <h2 class="section-title">Autora</h2>
         <div class="text-content">
-            <p>Con más de 100 artículos científicos y obras fundamentales, mi legado busca orientar tanto a la comunidad académica como al entorno familiar.</p>
+            <p>Con más de 100 artículos científicos y obras fundamentales:</p>
             <ul class="especial-list">
-                <li><strong>"Alumnos con capacidad superior":</strong> Guía de referencia para la identificación y desarrollo del talento.</li>
-                <li><strong>"Educar hijos inteligentes":</strong> Estrategias prácticas publicadas por Editorial Santillana.</li>
-                <li><strong>"La sobredotación intelectual":</strong> Un análisis profundo de los modelos y conceptos de la inteligencia superior.</li>
+                <li><strong>"Alumnos con capacidad superior":</strong> Guía de referencia para el talento.</li>
+                <li><strong>"Educar hijos inteligentes":</strong> Estrategias para el entorno familiar.</li>
+                <li><strong>"La sobredotación intelectual":</strong> Modelos y conceptos clave.</li>
             </ul>
-            <p>Mis publicaciones en revistas de impacto como <span class="highlight">Papeles del Psicólogo</span> y mi labor como conferenciante internacional avalan un compromiso de décadas con la difusión del conocimiento.</p>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Luz Pérez Sánchez | Especialista en Inteligencia y Talento</p>
-        <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Actualizado por tu Agencia de Inteligencia Artificial</p>
     </footer>
 
 </body>
