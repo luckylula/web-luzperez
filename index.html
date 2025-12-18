@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luz Pérez Sánchez | Innovación y Talento</title>
+    <title>Luz Pérez Sánchez | Innovación, Talento y Educación</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -14,16 +14,17 @@
             --white: #ffffff;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             background-color: var(--bg);
             color: var(--text);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
-        /* --- Header con Video --- */
+        /* --- Header con Video de Fondo --- */
         header {
             position: relative;
             height: 100vh;
@@ -37,12 +38,8 @@
 
         #bg-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
             z-index: -2;
             transform: translate(-50%, -50%);
             object-fit: cover;
@@ -51,91 +48,70 @@
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.45);
             z-index: -1;
         }
 
-        .hero-content {
-            animation: fadeInUp 1.2s ease-out;
-            color: var(--white);
-            z-index: 1;
-        }
+        .hero-content { color: white; z-index: 1; padding: 0 20px; animation: fadeInUp 1.2s ease-out; }
+        h1 { font-size: 4.5rem; margin-bottom: 10px; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); }
+        .tagline { font-size: 1.6rem; font-weight: 300; margin-bottom: 30px; }
 
-        h1 { font-size: 4rem; margin-bottom: 10px; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-
-        .pills { display: flex; gap: 15px; justify-content: center; }
+        .pills { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
         .pill {
-            padding: 8px 20px;
+            padding: 12px 25px;
             border: 1px solid white;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
             color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 400;
         }
+        .pill:hover { background: var(--accent); color: var(--primary); border-color: var(--accent); transform: scale(1.05); }
 
-        /* --- Sección de Tarjetas (Grid mejorado) --- */
-        section { padding: 80px 10%; background: white; }
+        /* --- Secciones Generales --- */
+        section { padding: 100px 10%; background: white; border-bottom: 1px solid #edf2f7; }
+        .section-title { font-size: 2.8rem; color: var(--primary); text-align: center; margin-bottom: 50px; }
+        .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: var(--accent); margin: 15px auto 0; }
 
+        /* --- Grid de Tarjetas iniciales --- */
         .grid-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
+            margin-bottom: 60px;
         }
-
         .card {
             background: var(--white);
-            border-radius: 15px;
-            overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card-image { width: 100%; height: auto; display: block; }
+        .card-body { padding: 30px; }
+        .card-body h3 { color: var(--primary); margin-top: 0; font-size: 1.5rem; }
+
+        /* --- Estilo de contenido de texto --- */
+        .text-content { max-width: 900px; margin: 0 auto; font-size: 1.2rem; color: #4a5568; }
+        .highlight { color: var(--primary); font-weight: bold; }
+        
+        ul.especial-list { list-style: none; padding: 0; margin-top: 30px; }
+        ul.especial-list li { 
+            margin-bottom: 20px; 
+            padding: 20px; 
+            background: var(--bg); 
+            border-left: 5px solid var(--accent);
+            border-radius: 0 10px 10px 0;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .card-image {
-            width: 100%;
-            height: auto; /* Permite que la foto se vea entera según su proporción original */
-            display: block;
-        }
-
-        .card-body {
-            padding: 25px;
-            text-align: left;
-            flex-grow: 1; /* Hace que el texto rellene el espacio de forma uniforme */
-        }
-
-        .card-body h3 {
-            margin: 0 0 15px 0;
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-
-        .card-body p {
-            margin: 0;
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        .btn-main {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 35px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
+        footer { padding: 50px; text-align: center; background: var(--primary); color: white; }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -149,45 +125,80 @@
         <div class="overlay"></div>
         <div class="hero-content">
             <h1>Luz Pérez Sánchez</h1>
-            <p style="font-size: 1.5rem;">Impulsando el Talento y la Innovación Educativa</p>
+            <p class="tagline">Impulsando el Talento y la Innovación Educativa</p>
             <div class="pills">
-                <span class="pill">Catedrática</span>
-                <span class="pill">Investigadora</span>
-                <span class="pill">Autora</span>
+                <a href="#catedratica" class="pill">Catedrática</a>
+                <a href="#investigadora" class="pill">Investigadora</a>
+                <a href="#autora" class="pill">Autora</a>
             </div>
-            <a href="#about" class="btn-main">Explorar Trayectoria</a>
         </div>
     </header>
 
     <section id="about">
-        <h2 style="font-size: 2.5rem; color: var(--primary); text-align: center;">Pedagogía con Propósito</h2>
-        
+        <h2 class="section-title">Pedagogía con Propósito</h2>
         <div class="grid-features">
             <div class="card">
                 <img src="images/alta_capaidad_luz.jpg" alt="Alta Capacidad" class="card-image">
                 <div class="card-body">
                     <h3>Alta Capacidad</h3>
-                    <p>Programas específicos para el desarrollo del talento y la excelencia educativa de forma integral.</p>
+                    <p>Desarrollo integral del talento y excelencia educativa aplicada.</p>
                 </div>
             </div>
-
             <div class="card">
                 <img src="images/innovacion_luz.jpg" alt="Innovación" class="card-image">
                 <div class="card-body">
                     <h3>Innovación</h3>
-                    <p>Nuevas fronteras en psicología aplicada y técnicas de aprendizaje creativo para el siglo XXI.</p>
+                    <p>Nuevas fronteras en psicología y aprendizaje creativo para el siglo XXI.</p>
                 </div>
             </div>
-
             <div class="card">
                 <img src="images/publicaciones_luz.jpg" alt="Publicaciones" class="card-image">
                 <div class="card-body">
                     <h3>Publicaciones</h3>
-                    <p>Más de 30 años de investigación plasmados en libros, ponencias y artículos científicos de impacto.</p>
+                    <p>Referentes científicos y guías fundamentales para familias y docentes.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="catedratica" style="background: var(--bg);">
+        <h2 class="section-title">Catedrática</h2>
+        <div class="text-content">
+            <p>Mi trayectoria como <span class="highlight">Catedrática de Psicología Evolutiva y de la Educación</span> en la Universidad Complutense de Madrid y en la Universidad Camilo José Cela es el pilar de mi compromiso con el talento.</p>
+            <p>Mi formación se consolidó en centros de referencia mundial como las universidades de <span class="highlight">Harvard y Yale</span>, donde trabajé junto al Profesor Robert J. Sternberg. Esta experiencia internacional marcó mi visión sobre el desarrollo de la inteligencia y el potencial humano.</p>
+            <p>He dedicado mi carrera a llevar la investigación de vanguardia directamente a las aulas, formando a las nuevas generaciones de profesionales de la educación.</p>
+        </div>
+    </section>
+
+    <section id="investigadora">
+        <h2 class="section-title">Investigadora</h2>
+        <div class="text-content">
+            <p>Como Directora del <span class="highlight">Grupo de Investigación en Alta Capacidad y Talento (GAT)</span>, lidero proyectos que transforman la ciencia en impacto social real.</p>
+            <ul class="especial-list">
+                <li><strong>Programa Estrella:</strong> Pionero en España para la atención específica de alumnos con alta capacidad.</li>
+                <li><strong>Proyecto BIT:</strong> Innovación tecnológica para la inclusión y alfabetización digital de personas con discapacidad intelectual.</li>
+                <li><strong>Reconocimientos:</strong> Premio Nacional de Investigación Educativa y galardones de Cruz Roja y la Fundación Síndrome de Down por mi labor científica.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="autora" style="background: var(--bg);">
+        <h2 class="section-title">Autora</h2>
+        <div class="text-content">
+            <p>Con más de 100 artículos científicos y obras fundamentales, mi legado busca orientar tanto a la comunidad académica como al entorno familiar.</p>
+            <ul class="especial-list">
+                <li><strong>"Alumnos con capacidad superior":</strong> Guía de referencia para la identificación y desarrollo del talento.</li>
+                <li><strong>"Educar hijos inteligentes":</strong> Estrategias prácticas publicadas por Editorial Santillana.</li>
+                <li><strong>"La sobredotación intelectual":</strong> Un análisis profundo de los modelos y conceptos de la inteligencia superior.</li>
+            </ul>
+            <p>Mis publicaciones en revistas de impacto como <span class="highlight">Papeles del Psicólogo</span> y mi labor como conferenciante internacional avalan un compromiso de décadas con la difusión del conocimiento.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Luz Pérez Sánchez | Especialista en Inteligencia y Talento</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Actualizado por tu Agencia de Inteligencia Artificial</p>
+    </footer>
 
 </body>
 </html>
