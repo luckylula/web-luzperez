@@ -7,10 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a365d; /* Azul académico profundo */
-            --accent: #4fd1c5;  /* Turquesa pedagógico */
+            --primary: #1a365d;
+            --accent: #4fd1c5;
             --bg: #f7fafc;
             --text: #2d3748;
+            --white: #ffffff;
         }
 
         body {
@@ -22,38 +23,59 @@
             scroll-behavior: smooth;
         }
 
-        /* Animación de entrada */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* --- Header con Video de Fondo --- */
         header {
+            position: relative;
             height: 100vh;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Capa oscura para legibilidad */
+            z-index: -1;
         }
 
         .hero-content {
             animation: fadeInUp 1.2s ease-out;
+            color: var(--white);
+            z-index: 1;
         }
 
         h1 {
             font-size: 4rem;
-            color: var(--primary);
+            color: var(--white);
             margin-bottom: 10px;
             letter-spacing: -1px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
         .tagline {
             font-size: 1.5rem;
             font-weight: 300;
-            color: var(--text);
             margin-bottom: 30px;
         }
 
@@ -65,19 +87,23 @@
 
         .pill {
             padding: 8px 20px;
-            border: 1px solid var(--primary);
+            border: 1px solid var(--white);
             border-radius: 20px;
             font-size: 0.9rem;
             transition: all 0.3s;
             cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
         }
 
         .pill:hover {
-            background: var(--primary);
-            color: white;
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
             transform: scale(1.05);
         }
 
+        /* --- Secciones --- */
         section {
             padding: 100px 10%;
             background: white;
@@ -91,19 +117,36 @@
         }
 
         .card {
-            padding: 40px;
+            padding: 60px 40px;
             border-radius: 15px;
-            background: var(--bg);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             border-left: 5px solid var(--accent);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 250px;
+        }
+
+        /* Capa interna para que el texto de la tarjeta sea legible sobre la imagen */
+        .card-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
         }
 
         .btn-main {
+            display: inline-block;
             margin-top: 40px;
             padding: 15px 40px;
             background: var(--primary);
@@ -119,11 +162,27 @@
             color: var(--primary);
         }
 
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+        }
+
     </style>
 </head>
 <body>
 
     <header>
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="video luz_conferencia.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+        <div class="overlay"></div>
+        
         <div class="hero-content">
             <h1>Luz Pérez Sánchez</h1>
             <p class="tagline">Impulsando el Talento y la Innovación Educativa</p>
@@ -140,21 +199,27 @@
     <section id="about">
         <h2 style="font-size: 2.5rem; color: var(--primary);">Pedagogía con Propósito</h2>
         <p style="max-width: 700px; font-size: 1.2rem; line-height: 1.6;">
-            Especialista en identificar y potenciar el talento humano. Mi enfoque combina la rigurosidad científica de la Universidad Complutense con metodologías innovadoras para el futuro de la educación.
+            Especialista en identificar y potenciar el talento humano. Mi enfoque combina la rigurosidad científica con metodologías innovadoras para el futuro de la educación.
         </p>
 
         <div class="grid-features">
-            <div class="card">
-                <h3>Alta Capacidad</h3>
-                <p>Programas específicos para el desarrollo del talento y la excelencia educativa.</p>
+            <div class="card" style="background-image: url('alta_capaidad_luz.jpg');">
+                <div class="card-content">
+                    <h3>Alta Capacidad</h3>
+                    <p>Programas específicos para el desarrollo del talento y la excelencia educativa.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Innovación</h3>
-                <p>Nuevas fronteras en psicología aplicada y técnicas de aprendizaje creativo.</p>
+            <div class="card" style="background-image: url('innovacion_luz.jpg');">
+                <div class="card-content">
+                    <h3>Innovación</h3>
+                    <p>Nuevas fronteras en psicología aplicada y técnicas de aprendizaje creativo.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Publicaciones</h3>
-                <p>Más de 30 años de investigación plasmados en libros y artículos científicos.</p>
+            <div class="card" style="background-image: url('publicaciones_luz.jpg');">
+                <div class="card-content">
+                    <h3>Publicaciones</h3>
+                    <p>Más de 30 años de investigación plasmados en libros y artículos científicos.</p>
+                </div>
             </div>
         </div>
     </section>
