@@ -23,7 +23,6 @@
             scroll-behavior: smooth;
         }
 
-        /* --- Header con Video de Fondo --- */
         header {
             position: relative;
             height: 100vh;
@@ -55,7 +54,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Capa oscura para legibilidad */
+            background: rgba(0, 0, 0, 0.4);
             z-index: -1;
         }
 
@@ -103,7 +102,6 @@
             transform: scale(1.05);
         }
 
-        /* --- Secciones --- */
         section {
             padding: 100px 10%;
             background: white;
@@ -131,7 +129,6 @@
             min-height: 250px;
         }
 
-        /* Capa interna para que el texto de la tarjeta sea legible sobre la imagen */
         .card-content {
             position: relative;
             z-index: 2;
@@ -157,28 +154,17 @@
             transition: 0.3s;
         }
 
-        .btn-main:hover {
-            background: var(--accent);
-            color: var(--primary);
-        }
-
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .tagline { font-size: 1.2rem; }
-        }
-
     </style>
 </head>
 <body>
 
     <header>
         <video autoplay muted loop playsinline id="bg-video">
-            <source src="video luz_conferencia.mp4" type="video/mp4">
+            <source src="images/video luz_conferencia.mp4" type="video/mp4">
             Tu navegador no soporta video.
         </video>
         <div class="overlay"></div>
@@ -198,24 +184,20 @@
 
     <section id="about">
         <h2 style="font-size: 2.5rem; color: var(--primary);">Pedagogía con Propósito</h2>
-        <p style="max-width: 700px; font-size: 1.2rem; line-height: 1.6;">
-            Especialista en identificar y potenciar el talento humano. Mi enfoque combina la rigurosidad científica con metodologías innovadoras para el futuro de la educación.
-        </p>
-
         <div class="grid-features">
-            <div class="card" style="background-image: url('alta_capaidad_luz.jpg');">
+            <div class="card" style="background-image: url('images/alta_capaidad_luz.jpg');">
                 <div class="card-content">
                     <h3>Alta Capacidad</h3>
                     <p>Programas específicos para el desarrollo del talento y la excelencia educativa.</p>
                 </div>
             </div>
-            <div class="card" style="background-image: url('innovacion_luz.jpg');">
+            <div class="card" style="background-image: url('images/innovacion_luz.jpg');">
                 <div class="card-content">
                     <h3>Innovación</h3>
                     <p>Nuevas fronteras en psicología aplicada y técnicas de aprendizaje creativo.</p>
                 </div>
             </div>
-            <div class="card" style="background-image: url('publicaciones_luz.jpg');">
+            <div class="card" style="background-image: url('images/publicaciones_luz.jpg');">
                 <div class="card-content">
                     <h3>Publicaciones</h3>
                     <p>Más de 30 años de investigación plasmados en libros y artículos científicos.</p>
