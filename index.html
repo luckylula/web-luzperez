@@ -73,7 +73,7 @@
             color: white;
         }
 
-        /* --- Sección de Tarjetas (Grid) --- */
+        /* --- Sección de Tarjetas (Grid mejorado) --- */
         section { padding: 80px 10%; background: white; }
 
         .grid-features {
@@ -86,10 +86,12 @@
         .card {
             background: var(--white);
             border-radius: 15px;
-            overflow: hidden; /* Corta la imagen para que encaje en las esquinas redondeadas */
+            overflow: hidden; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
             border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -99,14 +101,14 @@
 
         .card-image {
             width: 100%;
-            height: 200px; /* Altura fija para las fotos */
-            object-fit: cover; /* Hace que la foto no se deforme */
+            height: auto; /* Permite que la foto se vea entera según su proporción original */
             display: block;
         }
 
         .card-body {
             padding: 25px;
             text-align: left;
+            flex-grow: 1; /* Hace que el texto rellene el espacio de forma uniforme */
         }
 
         .card-body h3 {
